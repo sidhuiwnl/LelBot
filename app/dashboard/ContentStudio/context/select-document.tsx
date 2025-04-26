@@ -1,8 +1,8 @@
 "use client"
 
 import {createContext,useState,useContext,ReactNode} from "react";
-import {Document} from "@/app/dashboard/context/document-context";
-import {useDocument} from "@/app/dashboard/context/document-context";
+import {Document} from "@/app/dashboard/ContentStudio/context/document-context";
+import {useDocument} from "@/app/dashboard/ContentStudio/context/document-context";
 
 
 type DocumentContextType = {

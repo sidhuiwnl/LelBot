@@ -1,15 +1,10 @@
 "use client"
 
 import {FileText,Plus} from "lucide-react";
-import {useDocument} from "@/app/dashboard/context/document-context";
+import {useDocument} from "@/app/dashboard/ContentStudio/context/document-context";
 import Link from "next/link";
-import {useSelectDocument} from "@/app/dashboard/context/select-document";
+import {useSelectDocument} from "@/app/dashboard/ContentStudio/context/select-document";
 
-interface File {
-    id: number;
-    title: string,
-   content: string,
-}
 
 export default function Sidebar() {
 
@@ -36,7 +31,6 @@ export default function Sidebar() {
             <h1>LelBot</h1>
             <div className="flex flex-col space-y-4 mt-10">
                 <label>Main Content</label>
-
             </div>
             <div className="mt-20 w-full">
                 <div className="flex flex-row items-center justify-between  gap-2">
@@ -53,7 +47,7 @@ export default function Sidebar() {
                 {document?.map((document, i) => (
                     <Link
                         onClick={() => selectDocument(document.id)}
-                        href={`/dashboard/${document.id}`}
+                        href={`/dashboard/ContentStudio/${document.id}`}
                         key={i} className="flex flex-row space-x-2 mt-10">
                         <FileText size={18}/>
                         <p className="text-sm">{document.title}</p>

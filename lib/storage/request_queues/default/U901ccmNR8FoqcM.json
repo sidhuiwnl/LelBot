@@ -1,0 +1,9 @@
+{
+	"id": "U901ccmNR8FoqcM",
+	"json": "{\"id\":\"U901ccmNR8FoqcM\",\"url\":\"https://v4.zod.dev/v4\",\"loadedUrl\":\"https://v4.zod.dev/v4\",\"uniqueKey\":\"https://v4.zod.dev/v4\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2025-04-26T10:55:21.188Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://v4.zod.dev/v4",
+	"url": "https://v4.zod.dev/v4"
+}

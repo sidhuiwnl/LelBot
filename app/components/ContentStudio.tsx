@@ -2,7 +2,7 @@
 export default function ContentStudio() {
     return (
         <div>
-            hi
+            This is a studio page
         </div>
     )
 }

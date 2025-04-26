@@ -1,9 +1,7 @@
-import ContentStudio from "@/app/components/ContentStudio";
-
-export default function Dashboard(){
+export default function Page(){
     return (
         <div>
-            <ContentStudio/>
+            Dashboard
         </div>
     )
 }
