@@ -1,41 +1,26 @@
-import { CheerioCrawler } from 'crawlee';
+import { Exa } from "exa-js";
 
-async function run(websiteUrl: string) {
-    const crawler = new CheerioCrawler({
-        async requestHandler({ $, request, log }) {
-            log.info(`Visiting ${request.url}`);
+const exa = new Exa("98313789-bced-45eb-a5a3-5096aae2532b")
 
+export async function getWebsiteHtml(website: string) {
+    try {
+        const response = await exa.getContents(website,{
+            text : {
+                includeHtmlTags: true,
+            },
+            extras : {
+                imageLinks : 2
+            }
 
-            const links = $('a').map((_, el) => ({
-                href: $(el).attr('href'),
-                text: $(el).text().trim(),
-            })).get();
+        });
+        if (response.results && response.results.length > 0 && response.results[0].text) {
+            console.log(response.results[0].text);
+            return response.results[0].text;
 
-
-            const images = $('img').map((_, el) => ({
-                src: $(el).attr('src'),
-                alt: $(el).attr('alt'),
-            })).get();
-
-
-            const headings = $('h1, h2, h3, h4, h5, h6').map((_, el) => ({
-                tag: el.tagName.toLowerCase(),
-                text: $(el).text().trim(),
-            })).get();
-
-
-            const paragraphs = $('p').map((_, el) => $(el).text().trim()).get();
-
-            console.log('Links:', links);
-            console.log('Images:', images);
-            console.log('Headings:', headings);
-            console.log('Paragraphs:', paragraphs);
-        },
-
-        maxRequestsPerCrawl: 1,
-    });
-
-    await crawler.run([websiteUrl]);
+        } else {
+            console.log("Failed to retrieve content or content is empty");
+        }
+    }catch(error) {
+        console.error("Error fetching content:", error);
+    }
 }
-
-run('https://v4.zod.dev/v4');

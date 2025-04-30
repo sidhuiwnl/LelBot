@@ -27,10 +27,11 @@ export default function Sidebar() {
     }
 
     return (
-        <div className="flex flex-col  p-4 w-[300px] border-r border-neutral-800">
+        <div className="flex flex-col  p-4 w-[500px] border-r border-neutral-800">
             <h1>LelBot</h1>
             <div className="flex flex-col space-y-4 mt-10">
                 <label>Main Content</label>
+                <p className="text-sm bg-white text-black p-2 border rounded-lg ">𝕏 Tweet</p>
             </div>
             <div className="mt-20 w-full">
                 <div className="flex flex-row items-center justify-between  gap-2">

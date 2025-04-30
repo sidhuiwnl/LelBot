@@ -1,9 +1,9 @@
 import ContentStudio from "@/app/components/ContentStudio";
 
-export default function Dashboard(){
+export default function Page() {
     return (
-        <div>
-            <ContentStudio/>
+        <div className="w-full flex flex-col  relative">
+            <ContentStudio />
         </div>
-    )
+    );
 }
