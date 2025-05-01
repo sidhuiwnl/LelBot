@@ -1,6 +1,6 @@
 import {GoogleGenAI} from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: "AIzaSyBE-Uv8TeM44ieFO3baJ1MsXW49wxkGO94" });
+const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_API_KEY });
 
 export async function convertToCleanHTML(text: string) {
     if (!text) {

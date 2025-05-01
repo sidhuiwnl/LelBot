@@ -32,23 +32,6 @@ export default function Chat() {
         setInput("");
         setShowSuggestion(false);
 
-        setTimeout(() => {
-            setMessages((prev) => [
-                ...prev,
-                { role: "USER", content: input },
-                {
-                    role: "BOT",
-                    content: `You mentioned: ${
-                        match?.[1]
-                            ? document
-                            .find((doc) =>
-                                doc.title.toLowerCase().includes(searchTerm)
-                            )?.title || "nothing"
-                            : "nothing"
-                    }`,
-                },
-            ]);
-        }, 500);
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

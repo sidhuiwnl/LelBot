@@ -1,6 +1,7 @@
 import { Exa } from "exa-js";
 
-const exa = new Exa("98313789-bced-45eb-a5a3-5096aae2532b")
+
+const exa = new Exa(process.env.EXA_API_KEY as string);
 
 export async function getWebsiteHtml(website: string) {
     try {
