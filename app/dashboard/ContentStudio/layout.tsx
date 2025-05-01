@@ -1,4 +1,4 @@
-import Sidebar from "@/app/components/Sidebar";
+import Sidebar from "@/components/Sidebar";
 import {DocumentProvider} from "@/app/dashboard/ContentStudio/context/document-context";
 import {SelectDocumentProvider} from "@/app/dashboard/ContentStudio/context/select-document";
 import AssistantSidebar from "@/app/dashboard/ContentStudio/components/AssistantSidebar";

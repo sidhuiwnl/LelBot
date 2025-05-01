@@ -1,8 +1,8 @@
-import ContentStudio from "@/app/components/ContentStudio";
+import ContentStudio from "@/components/ContentStudio";
 
 export default function Page() {
     return (
-        <div className="w-full flex flex-col  relative">
+        <div className="w-full flex flex-col">
             <ContentStudio />
         </div>
     );
