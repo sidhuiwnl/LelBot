@@ -3,6 +3,7 @@ import {useState} from "react";
 import {useDocument} from "@/app/dashboard/ContentStudio/context/document-context";
 import {useChat} from "@ai-sdk/react";
 
+
 export default function Chat() {
     const { document } = useDocument();
     const [showSuggestion, setShowSuggestion] = useState(false);

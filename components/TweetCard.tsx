@@ -4,13 +4,13 @@ import {Smile,Italic} from "lucide-react";
 
 export default function TweetCard() {
     return (
-        <div className="flex flex-col p-4 w-[500px] rounded-lg border border-neutral-800">
+        <div className="flex flex-col p-4 w-[500px]  rounded-lg border border-neutral-800">
             <div className="flex space-x-4 w-full">
-                <div className="w-11 h-10 rounded-full overflow-hidden bg-neutral-600">
+                <div className="w-11 h-10 rounded-full  bg-neutral-600">
                     <img
                         src="/ghib-me.png"
                         alt="me"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full rounded-full object-cover"
                     />
                 </div>
 
@@ -23,7 +23,7 @@ export default function TweetCard() {
                     <textarea
                         rows={4}
                         placeholder="What's happening?"
-                        className="mt-2 w-full bg-transparent text-sm text-white placeholder:text-neutral-500 resize-none outline-none"
+                        className="mt-2 w-full bg-transparent text-sm h-auto text-white placeholder:text-neutral-500 resize-none outline-none"
                     />
                     <hr className="border-t border-neutral-800"/>
                     <ToggleGroup type="multiple" className="mt-3">
