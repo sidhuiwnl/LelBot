@@ -1,16 +1,20 @@
-import {BotIcon, ArrowUpIcon} from "lucide-react";
+import {BotIcon, ArrowUpIcon,Check,X} from "lucide-react";
 import {useState} from "react";
 import {useDocument} from "@/app/dashboard/ContentStudio/context/document-context";
 import {useChat} from "@ai-sdk/react";
-
+import {Button} from "@/components/ui/button";
+import {useTweet} from "@/app/dashboard/ContentStudio/context/chat-tweet-context";
 
 export default function Chat() {
     const { document } = useDocument();
     const [showSuggestion, setShowSuggestion] = useState(false);
     const [selectedDocs, setSelectedDocs] = useState<{ id: number; title: string; content: string }[]>([]);
 
+    const { dispatch } = useTweet()
 
     const { messages, input, handleInputChange, handleSubmit: originalHandleSubmit } = useChat();
+
+
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
@@ -44,6 +48,18 @@ export default function Chat() {
 
         setSelectedDocs(prev => [...prev, doc]);
     };
+
+    const handleTweet = (text : string) => {
+        if (!text) {
+            return;
+        }
+        dispatch({
+            type : "SET_TWEET",
+            payload: text
+        })
+    }
+
+
 
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -99,12 +115,44 @@ export default function Chat() {
                     </div>
                 ) : (
                     messages.map(message => (
-                        <div key={message.id} className="whitespace-pre-wrap">
+
+                        <div
+                            key={message.id}
+                             className={`whitespace-pre-wrap ${
+                                 message.role === "user" ? "p-2 rounded-md mb-2 bg-neutral-800  text-sm" : " p-2 text-sm "
+                             }`}
+                        >
                             {message.role === 'user' ? 'User: ' : 'AI: '}
                             {message.parts.map((part, i) => {
+
                                 switch (part.type) {
                                     case 'text':
-                                        return <div key={`${message.id}-${i}`} className="text-white text-sm">{part.text}</div>;
+                                        return (
+                                            <>
+                                                <div
+                                                key={`${message.id}-${i}`}
+                                                className="text-white text-sm ">
+                                                {part.text}
+                                                </div>
+                                                { message.role !== 'user' && (
+                                                    <div className="flex flex-row justify-end">
+                                                        <Button className="cursor-pointer">
+                                                            Reject
+                                                            <X color="red"/>
+                                                        </Button>
+                                                        <Button
+                                                            variant="default"
+                                                            className="text-sm cursor-pointer"
+                                                            onClick={() => handleTweet(part.text)}
+                                                        >
+                                                            Apply
+                                                            <Check color="green"/>
+                                                        </Button>
+                                                    </div>
+                                                )}
+                                            </>
+
+                                        )
                                 }
                             })}
                         </div>
